@@ -60,10 +60,10 @@ $(document).ready(function(){
         $( "#slider-range" ).slider({
             range: true,
             min: 0,
-            max: 12000,
-            values: [ 2677, 9241 ],
+            max: 500000,
+            values: [ 200000, 350000 ],
             slide: function( event, ui ) {
-            $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+            $( "#amount" ).val( "Rs" + ui.values[ 0 ] + " - Rs" + ui.values[ 1 ] );
             }
         });
         $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
@@ -90,7 +90,7 @@ $(document).ready(function(){
         
         function makeTimer() {
 
-                var endTime = new Date("March 7, 2018 12:00:00 PDT");            
+                var endTime = new Date("March 7, 2023 12:00:00");            
                 var endTime = (Date.parse(endTime)) / 1000;
 
                 var now = new Date();
