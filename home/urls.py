@@ -5,4 +5,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
       path("",views.home,name="home"),
-]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+      path("contactus",views.contactus,name="contactus"),
+      path("back",views.home,name="back"),
+      path("contactussub",views.contactussub,name="contactussub"),
+
+]
