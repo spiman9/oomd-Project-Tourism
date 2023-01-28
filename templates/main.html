@@ -66,8 +66,7 @@
 	<!--[if lte IE 9]>
 =======
 	<body>
-		<p>Pritham</p>
-		<h1>HAHAHA</h1>
+		
 		<!--[if lte IE 9]>
 >>>>>>> 4243c6ec11d823644be5c7bc3074395c267faeac
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
@@ -80,6 +79,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-2">
+						
 						<div class="logo">
 							<a href="index.html">
 								tour<span>Nest</span>
@@ -104,11 +104,25 @@
 									<li class="smooth-menu"><a href="#spo">Special Offers</a></li>
 									<li class="smooth-menu"><a href="#blog">blog</a></li>
 									<li class="smooth-menu"><form action="contactus" method="post">{% csrf_token %}<button class="book-btn">Contact us
-									</button></li></form></li>
+									</button></form></li>
+									{% if user.is_authenticated %}
 									<li>
-										<button class="book-btn">book now
-										</button>
+										<form action="logout" method="post">{% csrf_token %}
+										<button class="book-btn">Logout
+										</button></form>
 									</li><!--/.project-btn-->
+									{% else %}
+									<li>
+										<form action="register" method="post">{% csrf_token %}
+										<button class="book-btn">Register
+										</button></form>
+									</li><!--/.project-btn-->
+									<li>
+										<form action="login" method="post">{% csrf_token %}
+										<button class="book-btn">Login
+										</button></form>
+									</li>
+									{% endif %}
 								</ul>
 							</div><!-- /.navbar-collapse -->
 						</div><!-- /.main-menu-->
@@ -120,16 +134,22 @@
 
 	</header><!-- /.top-area-->
 	<!-- main-menu End -->
-
+	
 
 	<!--about-us start -->
 	<section id="home" class="about-us">
+		
 		<div class="container">
 			<div class="about-us-content">
 				<div class="row">
 					<div class="col-sm-12">
 						<div class="single-about-us">
 							<div class="about-us-txt">
+								{% if user.is_authenticated %}
+								<h4>
+						Welocome ,{{user.username}} to
+								tour<span>Nest</span></h4>
+								{% endif %}
 								<h2>
 									Explore the Beauty of the Beautiful World
 
