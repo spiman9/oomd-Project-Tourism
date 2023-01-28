@@ -9,3 +9,29 @@ class contactus(models.Model):
     description=models.TextField()
     def __str__(self):
         return self.email
+class India(models.Model):
+    name=models.CharField(max_length=30)
+    email = models.EmailField(max_length=254)
+    numberPerson = models.IntegerField()
+    sdate = models.DateField()
+    edate = models.DateField()
+    acctype = models.CharField(max_length=100)
+    queries = models.CharField(max_length=100)
+
+class Dubai1(models.Model):
+    name=models.CharField(max_length=30)
+    email = models.EmailField(max_length=254)
+    numberPerson = models.IntegerField()
+    sdate = models.DateField()
+    edate = models.DateField()
+    acctype = models.CharField(max_length=100)
+    queries = models.CharField(max_length=100)
+
+class Singapore(models.Model):
+    name=models.CharField(max_length=30)
+    email = models.EmailField(max_length=254)
+    numberPerson = models.IntegerField()
+    sdate = models.DateField()
+    edate = models.DateField()
+    acctype = models.CharField(max_length=100)
+    queries = models.CharField(max_length=100)

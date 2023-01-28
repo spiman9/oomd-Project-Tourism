@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>India Booking Page</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script type="module" src="script.js"></script>
+</head>
+
+<body>
+  <style>
+    :root {
+      --dark-purple: #00a3b2;
+      --light-purple: #6564b0;
+    }
+
+    body {
+      padding-block: 5vh;
+      margin: 0;
+
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+      line-height: 1.5;
+      color: white;
+      background-image: linear-gradient(115deg,
+          rgba(58, 58, 158, 0.8),
+          rgba(136, 136, 206, 0.7)),
+        url(https://img.freepik.com/free-vector/india-background_1284-22033.jpg);
+        background: contain;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    #description {
+      font-size: 1.2em;
+      font-style: italic;
+    }
+
+    #survey-form {
+      display: flex;
+      flex-flow: column;
+      gap: 0.5em;
+
+      width: min(40em, 70vw);
+      padding: 1.5em 2em;
+      border-radius: 1.5em;
+      margin: 0 auto;
+
+      color: white;
+      background-color: var(--dark-purple);
+    }
+
+    #survey-form>label {
+      padding-left: 0.5em;
+
+      text-align: left;
+      font-size: 1.2em;
+    }
+
+    #survey-form>*+ :is(label, fieldset, button) {
+      margin-top: 0.5em;
+    }
+
+    #survey-form :where(input, select, textarea) {
+      padding: 0.5rem 1rem;
+      border: 3px var(--dark-purple) solid;
+      border-radius: 0.5em;
+
+      font-size: 1.1em;
+    }
+
+    #survey-form :where(input, select, textarea):focus {
+      border-color: var(--light-purple);
+      outline: none;
+    }
+
+    #survey-form input[name="age"] {
+      width: 2em;
+    }
+
+
+    /* Disable number input arrows */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type="number"] {
+      -moz-appearance: textfield;
+      text-align: right;
+    }
+
+    select :first-child {
+      /* Hiding the placeholder */
+      display: none;
+    }
+
+    fieldset legend {
+      text-align: left;
+    }
+
+    fieldset input {
+      margin: 0;
+    }
+
+    fieldset[name="langs"] div {
+      display: grid;
+      grid-template-columns: repeat(4, auto 1fr);
+      gap: 0.5em;
+      align-items: center;
+    }
+
+    fieldset[name="langs"] label {
+      text-align: left;
+    }
+
+    fieldset[name="recommend"] div {
+      display: flex;
+      align-items: center;
+      padding-inline: 1em;
+    }
+
+    fieldset[name="recommend"] label {
+      margin-left: 0.5em;
+      text-transform: capitalize;
+    }
+
+    fieldset input:not(:first-child) {
+      margin-left: auto;
+    }
+
+    textarea {
+      resize: none;
+      overflow-y: auto;
+    }
+
+    #survey-form button {
+      align-self: flex-end;
+
+      width: max-content;
+      padding: 0.6em 1em;
+      border: none;
+      border-radius: 0.5em;
+      box-shadow: 0 0 2px 1px #0002;
+
+      font-size: 1.2em;
+      background-color: var(--light-purple);
+      color: white;
+
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    #survey-form button:hover {
+      box-shadow: 0 0 4px 2px #0003;
+      transform: scale(1.1);
+    }
+  </style>
+
+  
+  <h1>India : The Country of Diverse Tradition and Exploration</h1>
+  <p id="description">
+    India is a vast country with second largest population in the world. Despite of different cultures, traditions, religions and languages, people still live together which showcases the Indian culture of ‘Unity in Diversity’. From Kashmir to Kanyakumari whole India is united and believes in the culture of peace, unity and prosperity. 
+  </p>
+  <h1>Your Comfort our Priority !!!</h1> 
+
+  <form id="survey-form" method="POST">
+    {% csrf_token %}
+    <label for="inputName">Name:</label>
+    <input id="inputName" type="text" name="name" placeholder="Joe Bloggs" required />
+
+    <label for="inputEmail">Email</label>
+    <input id="inputEmail" type="email" name="email" placeholder="joe.bloggs@gmail.com" required />
+
+    <label for="">Number of Person</label>
+    <input type="text" type="number" name="numPerson" required>
+
+    <label for="">Tour Starting date</label>
+    <input type="date" name="sdate" required>
+
+    <label for="">Tour End date</label>
+    <input type="date" name="edate" required>
+
+
+    <p style="color: black; font-size: 20px;"><b>Occupancy(Adult) 👨🏻‍⚖️✈️   Single:17905
+      Double:10595
+      Triple:8160</b> </p>
+    <p style="color: black; font-size: 20px;"><b>Child (5 - 11 yrs) 👶
+      Child With Bed:4750
+      Child Without Bed:1460</b> </p>
+      
+    <label for="selectRole">Select the accomodation Type</label>
+    <select id="selectRole" name="atype" required>
+      <option disabled="true" selected value="1 Adult(17905/-)">1 Adult(17905/-)</option>
+      <option value="1 Adult + 1 Child with bed(22655/-)">1 Adult + 1 Child with bed(22655/-)</option>
+      <option value="1 Adult + 1 Child Without Extra bed(19365/-)">1 Adult + 1 Child Without Extra bed(19365/-)</option>
+      <option value="2 Adult + 1 Child with bed(25940/-)">2 Adult + 1 Child with bed(25940/-)</option>
+      <option value="2 Adult + 1 Child without bed(22940/-)">2 Adult + 1 Child without bed(22940/-)</option>
+      <option value="2 Adult(21190/-)">2 Adult(21190/-)</option>
+      <option value="2 Adult + 2 Child one without Extra Bed And other wiht Bed(27400/-)">2 Adult + 2 Child one without Extra Bed And other wiht Bed(27400/-)</option>
+      <option value="3 Adult(24480/-)">3 Adult(24480/-)</option>
+      <option value="3 Adult + 1 Child Without Extra Bed(25940/-)">3 Adult + 1 Child Without Extra Bed(25940/-)</option>
+      <option value="other">Other</option>
+    </select>
+
+
+    <label for="textComment">Share for any additional Queries !!!</label>
+    <textarea id="textComment" name="comments" placeholder="Out for your service....."></textarea>
+
+    <button type="submit" style="background-color: yellow; width: 100%; color: black;">Book Now</button>
+  </form>
+</body>
+
+</html>
