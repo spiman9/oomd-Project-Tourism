@@ -8,7 +8,7 @@ from .models import contactus as CU
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate
-from .models import India , Singapore , Dubai
+from .models import India , Singapore , Dubai1
 
 # Create your views here.
 def home(request):
@@ -39,7 +39,7 @@ def dubai(request):
         atype = request.POST['atype']
         comment = request.POST['comments']
         # Create a object of India
-        obj = Dubai.objects.create(name = name , email = email , numberPerson = numberperson , sdate = sdate , edate = edate , acctype = atype ,  queries = comment)
+        obj = Dubai1.objects.create(name = name , email = email , numberPerson = numberperson , sdate = sdate , edate = edate , acctype = atype ,  queries = comment)
         obj.save()
         return redirect("/")
     return render(request , "joinusDubai.html")
@@ -59,7 +59,7 @@ def singapore(request):
         obj.save()
         return redirect("/")
     return render(request , "joinusSingapore.html")
-    
+
 def home(request):
     return render(request ,"main.html")
 def contactus(request):

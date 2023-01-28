@@ -18,7 +18,7 @@ class India(models.Model):
     acctype = models.CharField(max_length=100)
     queries = models.CharField(max_length=100)
 
-class Dubai(models.Model):
+class Dubai1(models.Model):
     name=models.CharField(max_length=30)
     email = models.EmailField(max_length=254)
     numberPerson = models.IntegerField()
