@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>India Booking Page</title>
   <link rel="stylesheet" href="styles.css" />
@@ -163,7 +164,12 @@
     }
   </style>
 
-  
+{% for message in messages %}
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+  <strong>{{message}}</strong> 
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
   <h1>India : The Country of Diverse Tradition and Exploration</h1>
   <p id="description">
     India is a vast country with second largest population in the world. Despite of different cultures, traditions, religions and languages, people still live together which showcases the Indian culture of ‘Unity in Diversity’. From Kashmir to Kanyakumari whole India is united and believes in the culture of peace, unity and prosperity. 
