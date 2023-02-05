@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Explore</title>
+    <style>
+        * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+  font-size: 17px;
+}
+
+video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+
+.content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+    </style>
+    <script>
+        var videoPlayer = document.getElementById('videoPlayer');
+    
+        // Auto play, half volume.
+        videoPlayer.play()
+        videoPlayer.volume = 0.5;
+    
+        // Play / pause.
+        videoPlayer.addEventListener('click', function () {
+            if (videoPlayer.paused == false) {
+                videoPlayer.pause();
+                videoPlayer.firstChild.nodeValue = 'Play';
+            } else {
+                videoPlayer.play();
+                videoPlayer.firstChild.nodeValue = 'Pause';
+            }
+        });
+    </script>
+</head>
+<body>
+    <video height="200" controls="controls" preload="none" onclick="this.play()">
+        <source type="video/webm" src="https://www.incredibleindia.org/content/dam/incredible-india-v2/video/original/indian_culture_1920_786.mp4">
+       </video>
+</body>
+</html>
